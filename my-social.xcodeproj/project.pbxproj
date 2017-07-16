@@ -20,6 +20,7 @@
 		BFE5FC591EA1888C00038921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE5FC581EA1888C00038921 /* Assets.xcassets */; };
 		BFE5FC5C1EA1888C00038921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFE5FC5A1EA1888C00038921 /* LaunchScreen.storyboard */; };
 		BFE5FC641EA1895400038921 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE5FC631EA1895400038921 /* GoogleService-Info.plist */; };
+		BFE73B451F1AFC0700206357 /* KeyPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE73B441F1AFC0700206357 /* KeyPad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		BFE5FC5B1EA1888C00038921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFE5FC5D1EA1888C00038921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFE5FC631EA1895400038921 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BFE73B441F1AFC0700206357 /* KeyPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPad.swift; sourceTree = "<group>"; };
+		BFFBD7E61EC69B300057C129 /* my-social.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "my-social.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,7 @@
 		BFE5FC4D1EA1888C00038921 /* my-social */ = {
 			isa = PBXGroup;
 			children = (
+				BFFBD7E61EC69B300057C129 /* my-social.entitlements */,
 				BFC4F1C91EA6CFD100E0E281 /* Util */,
 				BFE5FC661EA18C5600038921 /* View */,
 				BFE5FC671EA18C5D00038921 /* Controller */,
@@ -129,6 +133,7 @@
 				BFC4F1CC1EA6D1AB00E0E281 /* RoundButton.swift */,
 				BFC4F1CE1EA6D2FD00E0E281 /* FancyField.swift */,
 				BFC4F1D01EA6D41500E0E281 /* FacyButton.swift */,
+				BFE73B441F1AFC0700206357 /* KeyPad.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -178,6 +183,11 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 5AEPM6JAL6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -270,6 +280,7 @@
 				BFC4F1CB1EA6CFE800E0E281 /* Constants.swift in Sources */,
 				BFC4F1D11EA6D41500E0E281 /* FacyButton.swift in Sources */,
 				BFE5FC511EA1888C00038921 /* SignInVC.swift in Sources */,
+				BFE73B451F1AFC0700206357 /* KeyPad.swift in Sources */,
 				BFE5FC4F1EA1888C00038921 /* AppDelegate.swift in Sources */,
 				BFC4F1C81EA6CF5700E0E281 /* FancyView.swift in Sources */,
 				BFC4F1CF1EA6D2FD00E0E281 /* FancyField.swift in Sources */,
@@ -399,6 +410,7 @@
 			baseConfigurationReference = 703584C0918B48A3A4BB6A39 /* Pods-my-social.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "my-social/my-social.entitlements";
 				DEVELOPMENT_TEAM = 5AEPM6JAL6;
 				INFOPLIST_FILE = "my-social/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -413,6 +425,7 @@
 			baseConfigurationReference = 701AECBE034DEAD0D4FE7AF4 /* Pods-my-social.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "my-social/my-social.entitlements";
 				DEVELOPMENT_TEAM = 5AEPM6JAL6;
 				INFOPLIST_FILE = "my-social/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
