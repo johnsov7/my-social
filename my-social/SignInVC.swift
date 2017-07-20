@@ -10,6 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignInVC: UIViewController {
     
@@ -19,6 +20,7 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         emailField.delegate = self as? UITextFieldDelegate
         passField.delegate = self as? UITextFieldDelegate
@@ -30,6 +32,12 @@ class SignInVC: UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let _  = KeychainWrapper.defaultKeychainWrapper.string(forKey: KEY_UID){
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+        }
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -81,7 +89,7 @@ class SignInVC: UIViewController {
             
         } else {
             print("JESSE Succeeded connection with facebook")
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             self.firebaseAuth(credential)
             
             
@@ -89,35 +97,55 @@ class SignInVC: UIViewController {
         }
     }
     
-    func firebaseAuth(_ credential: FIRAuthCredential) {
-        FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+    func firebaseAuth(_ credential: AuthCredential) {
+        Auth.auth().signIn(with: credential, completion: { (user, error) in
             if error != nil {
                 print("JESSE: Unable to connect with Firebase")
                 
             } else {
                 print("JESSE: Successfully connected to Firebase")
+                if let user = user {
+                    let userData = ["provider": credential.provider]
+                    self.completeSignIn(id: user.uid, userData: userData)
+                }
             }
         })
     }
     
     @IBAction func signInTapped(_ sender: Any) {
         if let email = emailField.text, let pass = passField.text {
-            FIRAuth.auth()?.signIn(withEmail: email, password: pass, completion: { (user, error) in
+            Auth.auth().signIn(withEmail: email, password: pass, completion: { (user, error) in
                 if error == nil {
                     print("JESSSE: Email user authenticated to Firebase")
+                    if let user = user {
+                        let userData = ["provider": user.providerID]
+                        self.completeSignIn(id: user.uid, userData: userData)
+                    }
                     
                 } else {
-                    FIRAuth.auth()?.createUser(withEmail: email, password: pass, completion: { (user, error) in
+                    Auth.auth().createUser(withEmail: email, password: pass, completion: { (user, error) in
                         if error != nil {
                             print("JESSE: Unable to authenticate in Firebase email")
-                            
+                           
                         } else {
                             print("JESSE: Successfully authenticated with Firebase")
+                            if let user = user {
+                                let userData = ["provider": user.providerID]
+                               self.completeSignIn(id: user.uid, userData: userData)
+                            }
+                            
                         }
                     })
                 }
             })
         }
+    }
+    
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        DataService.ds.createFirebaseUser(uid: id, userData: userData)
+        let keychainResult = KeychainWrapper.defaultKeychainWrapper.set(id, forKey: KEY_UID)
+        print("JESSE: Data saved to keychain \(keychainResult)")
+        performSegue(withIdentifier: "goToFeed", sender: nil)
     }
 }
 
