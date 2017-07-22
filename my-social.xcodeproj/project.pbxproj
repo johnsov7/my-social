@@ -15,6 +15,7 @@
 		BFC4F1CD1EA6D1AB00E0E281 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4F1CC1EA6D1AB00E0E281 /* RoundButton.swift */; };
 		BFC4F1CF1EA6D2FD00E0E281 /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4F1CE1EA6D2FD00E0E281 /* FancyField.swift */; };
 		BFC4F1D11EA6D41500E0E281 /* FacyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4F1D01EA6D41500E0E281 /* FacyButton.swift */; };
+		BFC596CB1F23F08D00E2A737 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC596CA1F23F08D00E2A737 /* Post.swift */; };
 		BFDA630D1F202327008ECD5E /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA630C1F202327008ECD5E /* DataService.swift */; };
 		BFE5FC4F1EA1888C00038921 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5FC4E1EA1888C00038921 /* AppDelegate.swift */; };
 		BFE5FC511EA1888C00038921 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5FC501EA1888C00038921 /* SignInVC.swift */; };
@@ -37,6 +38,7 @@
 		BFC4F1CC1EA6D1AB00E0E281 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		BFC4F1CE1EA6D2FD00E0E281 /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
 		BFC4F1D01EA6D41500E0E281 /* FacyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacyButton.swift; sourceTree = "<group>"; };
+		BFC596CA1F23F08D00E2A737 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BFDA630C1F202327008ECD5E /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		BFE5FC4B1EA1888C00038921 /* my-social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my-social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE5FC4E1EA1888C00038921 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		BFE5FC651EA18C5000038921 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BFC596CA1F23F08D00E2A737 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				BFC4F1CD1EA6D1AB00E0E281 /* RoundButton.swift in Sources */,
 				BFC4F1CB1EA6CFE800E0E281 /* Constants.swift in Sources */,
 				BFDA630D1F202327008ECD5E /* DataService.swift in Sources */,
+				BFC596CB1F23F08D00E2A737 /* Post.swift in Sources */,
 				BFC4F1D11EA6D41500E0E281 /* FacyButton.swift in Sources */,
 				BFE5FC511EA1888C00038921 /* SignInVC.swift in Sources */,
 				BFE5FC4F1EA1888C00038921 /* AppDelegate.swift in Sources */,
